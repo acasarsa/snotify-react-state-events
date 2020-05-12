@@ -1,6 +1,8 @@
 import React from 'react';
 import Filter from './Filter';
+import SongItem from './components/SongItem.js'
 
+items = () => this.props.fetch.map((item,key))
 const SongList = props => {
     return (
         <div className="half songlist">
@@ -18,7 +20,9 @@ const SongList = props => {
                         </tr>
                     </thead>
                     <tbody>
-                        {/** TODO: Render a SongItem component per each song here*/}
+                        {
+
+                        }}
                     </tbody>
             </table>
         </div>

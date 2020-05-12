@@ -1,18 +1,27 @@
 import React from 'react';
 import './App.css';
 import MainContainer from './components/MainContainer';
-
+import SongItem from './components/SongItem'
 let API_ENDPOINT = `http://localhost:6001/songs`
 
 class App extends React.Component {
-  state = {
+  constructor(props){
+    super(props)
+  this.state = {
+      data: null
+  }
+}
 
+  fetchSongs= ()=>{
+    fetch("http://localhost:6001/songs").then(resp=>resp.json())
+    .then(data=> this.setState({data: data}))
+    
   }
   
   renderNav = () => {
     return (
       <div className="simple-flex-row">
-        <button onClick={null /* TODO: Put your method to fetch the songs */}>Get Songs</button> 
+        <button onClick={this.fetchSongs()}>Get Songs</button> 
         <h1>S-not-ify 🐽</h1>
         <input placeholder="Search by title or artist..."/>
       </div>
@@ -23,7 +32,7 @@ class App extends React.Component {
     return (
       <div className="App">
         {this.renderNav()} {/** The renderNav method renders a div holding the button to get songs and the title */}
-        <MainContainer /> {/** TODO: What props do I need? */}
+        <MainContainer fetch= {this.state.data}/> {/** TODO: What props do I need? */}
       </div>
     );
   }
