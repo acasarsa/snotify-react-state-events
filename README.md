@@ -86,15 +86,17 @@ App.js
 
 
 - Fetch all songs successfully from the backend when the `Get Songs` button is clicked
-OKAY
+###OKIEDOKIEOH. Fetched and parsed and passed down from app
 
 - Render all songs in the `SongList`
-OKAY
+###OKIEDOKIEOH passed down through props
 
 - When `Liked` is clicked on a given song in the `SongList`, its like count should increase. This *DOES NOT* need to persist to the backend. 
-OKAY
+###OKIEDOKIEOH. Did not call a fetch patch. Can update now through same way as I updated the favorites. May avoid since pessimistic rendering may slow down my computer too much.
 
 - When the heart is clicked on a given song in the `SongList`, toggle its favorite value. This should persist to the backend so when the page refreshes it is still (not) a favorite. Hint: remember a little thing called a `PATCH` request?
+###OKIEDOKIEOH. Created a patchSong function in app that would
+receive an updated songObject that'll be sent as a fetch request to the database which after it rerenders out the entire page through the getSongs function. Pessimistic rendering. 
 
 ### Advanced Deliverables
 If you get through all of the Core Deliverables, try your hand at the Advanced ones. Check out the gif below for how it should look. 

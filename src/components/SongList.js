@@ -20,7 +20,7 @@ const SongList = props => {
                         </tr>
                     </thead>
                     <tbody>
-                        {props.songs.map((song,index) => <SongItem key= {index} {...song}/>)}
+                        {props.songs.map((song,index) => <SongItem updateSong={props.updateSong} key= {index} {...song}/>)}
                     </tbody>
             </table>
         </div>

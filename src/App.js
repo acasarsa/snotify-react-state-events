@@ -1,7 +1,10 @@
 import React from "react";
 import "./App.css";
 import MainContainer from "./components/MainContainer";
-
+const requestHeaders = {
+  "content-type":"application/json",
+  "accept": "application/json"
+}
 let API_ENDPOINT = `http://localhost:6001/songs`;
 // let response = fetch(API_ENDPOINT).then((res) => res.json());
 
@@ -37,6 +40,14 @@ class App extends React.Component {
       });
   };
 
+  patchSong = (songObject) => {
+    fetch(`${API_ENDPOINT}/${songObject.id}`,{
+    method: "PATCH",
+    headers: requestHeaders,
+    body: JSON.stringify(songObject) 
+    }).then(this.getSongs)
+  }
+
   renderNav = () => {
     return (
       <div className="simple-flex-row">
@@ -52,7 +63,7 @@ class App extends React.Component {
       <div className="App">
         {this.renderNav()}{" "}
         {/** The renderNav method renders a div holding the button to get songs and the title */}
-        <MainContainer songs={this.state.songs} />{" "}
+        <MainContainer songs={this.state.songs} updateSong={this.patchSong}/>{" "}
         {/** TODO: What props do I need? */}
       </div>
     );
