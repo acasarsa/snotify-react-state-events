@@ -2,6 +2,13 @@ import React from 'react';
 import Filter from './Filter';
 
 const SongList = props => {
+    console.log(props)
+    
+    individualSong = (props) => {
+        props.map(song => console.log(song))
+    }
+    
+
     return (
         <div className="half songlist">
             <h2>Song List</h2>
