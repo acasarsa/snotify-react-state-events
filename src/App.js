@@ -8,11 +8,21 @@ class App extends React.Component {
   state = {
 
   }
+
+ getSongs = () => {
+    fetch(API_ENDPOINT)
+    .then((resp) => resp.json())
+    .then(songs => {
+      songs.forEach(song => {
+        console.log(song)
+      })
+      })
+  }
   
   renderNav = () => {
     return (
       <div className="simple-flex-row">
-        <button onClick={null /* TODO: Put your method to fetch the songs */}>Get Songs</button> 
+        <button onClick={this.getSongs}>Get Songs</button> 
         <h1>S-not-ify 🐽</h1>
         <input placeholder="Search by title or artist..."/>
       </div>

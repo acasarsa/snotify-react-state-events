@@ -103,3 +103,15 @@ After we get through Forms labs and lecture, come back to this to practice those
 
 ## Notes on Future Labs
 - In this lab, we provided support like `onClick={null /* Put your click handler here */}`. We will not provide those kinds of guides in the future. You'll have to decide which element needs the event handler. 
+
+
+## Component Hierarchy 
+|- Index
+    |- App
+        |- MainContainer
+            |- Songlist
+                |-Filter
+                |- SongItem
+            |- Queue
+
+    |- ServiceWorker
