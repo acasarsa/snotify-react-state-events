@@ -1,29 +1,50 @@
-import React from 'react';
-import './App.css';
-import MainContainer from './components/MainContainer';
+import React from "react";
+import "./App.css";
+import MainContainer from "./components/MainContainer";
 
-let API_ENDPOINT = `http://localhost:6001/songs`
+let API_ENDPOINT = `http://localhost:6001/songs`;
 
 class App extends React.Component {
   state = {
+    songs: [],
+  };
 
+
+
+  getSongs =  () => {
+    fetch(API_ENDPOINT)
+    .then(res => res.json())
+    .then(songs => {
+      this.setState({...this.state, songs});
+    })
+  };
+
+  patchForSong = (songList) => {
+    fetch(`${API_ENDPOINT}/${songList.id}`,{
+    method: "PATCH",
+    headers: {
+      "Content-type":"application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(songList) 
+    }).then(this.getSongs)
   }
-  
+
   renderNav = () => {
     return (
       <div className="simple-flex-row">
-        <button onClick={null /* TODO: Put your method to fetch the songs */}>Get Songs</button> 
+        <button onClick={this.getSongs}>Get Songs</button>
         <h1>S-not-ify 🐽</h1>
-        <input placeholder="Search by title or artist..."/>
+        <input placeholder="Search by title or artist..." />
       </div>
-    )
-  }
+    );
+  };
 
-  render(){
+  render() {
     return (
       <div className="App">
-        {this.renderNav()} {/** The renderNav method renders a div holding the button to get songs and the title */}
-        <MainContainer /> {/** TODO: What props do I need? */}
+        {this.renderNav()}{" "}
+        <MainContainer songs={this.state.songs} updateSong={this.patchForSong}/>{" "}
       </div>
     );
   }
