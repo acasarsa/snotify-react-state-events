@@ -16,9 +16,9 @@ class App extends React.Component {
   } 
   
   getSongs = () => {
-    fetch('API_ENDPOINT')
+    fetch(API_ENDPOINT)
     .then(resp => resp.json())
-    .then(data => {
+    .then((data) => {
       let songList = data.map((song) => {
         return {
           id: song.id,
