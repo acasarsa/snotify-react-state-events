@@ -6,8 +6,31 @@ let API_ENDPOINT = `http://localhost:6001/songs`
 
 class App extends React.Component {
   state = {
-
+    songs: []
   }
+
+  //fetch API
+  fetchSong = () => {
+    fetch(API_ENDPOINT)
+    .then(response => response.json())
+    .then(data => {
+      this.setState({...this.state, data})
+    })
+  }
+
+  //Update API
+  updateSong = (update) => {
+    fetch(`${API_ENDPOINT}/${update.id}`,{
+      method: "PATCH",
+      headers: {
+        "content-type":"application/json",
+          "accept": "application/json"
+      },
+      body: JSON.stringify(update)
+    }).then(this.updateSong)
+    }
+  }
+
   
   renderNav = () => {
     return (
