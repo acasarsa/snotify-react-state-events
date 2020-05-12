@@ -10,10 +10,11 @@ class App extends React.Component {
   }
 
   // callback that will fetch songs upon click event
+  // pass songs to the MainContainer component
   getSongsHandler = () => {
     fetch(`${API_ENDPOINT}`)
     .then(resp => resp.json())
-    .then(console.log)
+    .then(MainContainer)
   }
   
   renderNav = () => {
@@ -31,7 +32,8 @@ class App extends React.Component {
     return (
       <div className="App">
         {this.renderNav()} {/** The renderNav method renders a div holding the button to get songs and the title */}
-        <MainContainer /> {/** TODO: What props do I need? */}
+        {/* add the songs passed within event handler as a prop */}
+        <MainContainer songs={this.getSongsHandler}/> {/** TODO: What props do I need? */}
       </div>
     );
   }

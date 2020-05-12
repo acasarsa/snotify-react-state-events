@@ -1,5 +1,7 @@
 import React from 'react';
 import Filter from './Filter';
+// add import for SongItem
+import SongItem from './SongItem';
 
 const SongList = props => {
     return (
@@ -19,6 +21,7 @@ const SongList = props => {
                     </thead>
                     <tbody>
                         {/** TODO: Render a SongItem component per each song here*/}
+                        <SongItem />
                     </tbody>
             </table>
         </div>
