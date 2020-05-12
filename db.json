@@ -6,7 +6,7 @@
       "artist": "Beyonce",
       "url": "https://www.youtube.com/embed/WDZJPJV__bQ",
       "genre": "Hip Hop",
-      "favorite": true
+      "favorite": false
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "artist": "Childish Gambino",
       "url": "https://www.youtube.com/embed/VYOjWnS4cMY",
       "genre": "Hip Hop",
-      "favorite": true
+      "favorite": false
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "artist": "2Pac ft Talent",
       "url": "https://www.youtube.com/embed/eXvBjCO19QY",
       "genre": "Hip Hop",
-      "favorite": true
+      "favorite": false
     },
     {
       "id": 4,
@@ -38,7 +38,7 @@
       "artist": "Lizzo",
       "url": "https://www.youtube.com/embed/SmbmeOgWsqE",
       "genre": "Hip Hop",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 6,
@@ -62,7 +62,7 @@
       "artist": "2Pac",
       "url": "https://www.youtube.com/embed/Mb1ZvUDvLDY",
       "genre": "Hip Hop",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 9,
