@@ -10,20 +10,22 @@ class App extends React.Component {
     songs: []
   }
 
+  // handleClick = (songs) => {
+  //   // let newSongs = songs
+  //   this.setState({
+  //     ...this.state, songs
+  //   })
+  //   console.log(this.state.songs)
+  // }
+
   fetchSongs = () => {
     fetch(API_ENDPOINT)
     .then(response => response.json())
-    .then(songs => this.handleClick(songs) )
+    .then(songs => {
+      this.setState({...this.state,songs})
+    })
   }
 
-  handleClick = (songs) => {
-    // let newSongs = songs
-    this.setState({
-      ...this.state, songs
-    })
-    console.log(this.state.songs)
-  }
-  
   renderNav = () => {
     return (
       <div className="simple-flex-row">
