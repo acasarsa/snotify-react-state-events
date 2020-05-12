@@ -6,7 +6,6 @@ let API_ENDPOINT = `http://localhost:6001/songs`
 
 class App extends React.Component {
   state = {
-
   }
 
  getSongs = () => {
@@ -14,11 +13,21 @@ class App extends React.Component {
     .then((resp) => resp.json())
     .then(songs => {
       songs.forEach(song => {
-        console.log(song)
+        let tr = document.createElement('tr')
+        let table = document.querySelector("tbody")
+        tr.innerHTML = `
+        <td>${song.title}</td>
+        <td>${song.artist}</td>
+        <td>Play?</td>
+        <td>Queue?</td>
+        <td>Favorite</td>
+        <td>0</td>
+        `
+        table.appendChild(tr)
       })
       })
   }
-  
+
   renderNav = () => {
     return (
       <div className="simple-flex-row">
@@ -33,7 +42,7 @@ class App extends React.Component {
     return (
       <div className="App">
         {this.renderNav()} {/** The renderNav method renders a div holding the button to get songs and the title */}
-        <MainContainer /> {/** TODO: What props do I need? */}
+        <MainContainer /> {/** TODO: What props do I need? SongList?*/}
       </div>
     );
   }
