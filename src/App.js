@@ -8,11 +8,19 @@ class App extends React.Component {
   state = {
 
   }
+
+  // callback that will fetch songs upon click event
+  getSongsHandler = () => {
+    fetch(`${API_ENDPOINT}`)
+    .then(resp => resp.json())
+    .then(console.log)
+  }
   
   renderNav = () => {
     return (
       <div className="simple-flex-row">
-        <button onClick={null /* TODO: Put your method to fetch the songs */}>Get Songs</button> 
+        {/* added the callback to the React event handler */}
+        <button onClick={this.getSongsHandler}>Get Songs</button> 
         <h1>S-not-ify 🐽</h1>
         <input placeholder="Search by title or artist..."/>
       </div>
