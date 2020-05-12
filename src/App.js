@@ -6,7 +6,9 @@ let API_ENDPOINT = `http://localhost:6001/songs`
 
 class App extends React.Component {
   state = {
-    songs: []
+    songs: [],
+    queue: [],
+    currentlyPlaying: null
   }
 
   fetchSongs = () => {
@@ -18,6 +20,32 @@ class App extends React.Component {
     })
     .catch(err => console.error("error", err));
   };
+
+  playNow = (song) => {
+    console.log("PLAY NOW", song);
+    this.setState({
+      ...this.state,
+      currentlyPlaying: song
+    });
+  }
+
+  addToQueue = (song) => {
+    console.log("ADD TO QUEUE", song);
+    this.setState({
+      ...this.state,
+      queue: [...this.state.queue, song]
+    });
+  }
+
+  removeFromQueue = (index) => {
+    let copy = [...this.state.queue];
+    copy.splice(index, 1);
+
+    this.setState({
+      ...this.state,
+      queue: copy
+    });
+  }
 
   updateSong = (updated) => {
     console.log("UPDATE SONG", updated);
@@ -56,10 +84,19 @@ class App extends React.Component {
   }
 
   render(){
+    console.log("QUEUE", this.state.queue);
     return (
       <div className="App">
         {this.renderNav()} {/** The renderNav method renders a div holding the button to get songs and the title */}
-        <MainContainer songs={this.state.songs} updateSong={this.updateSong} /> {/** TODO: What props do I need? */}
+        <MainContainer 
+          songs={this.state.songs} 
+          updateSong={this.updateSong} 
+          currentlyPlaying={this.state.currentlyPlaying} 
+          queue={this.state.queue} 
+          addToQueue={this.addToQueue} 
+          playNow={this.playNow} 
+          removeFromQueue={this.removeFromQueue}
+        /> {/** TODO: What props do I need? */}
       </div>
     );
   }

@@ -9,14 +9,6 @@ const SongItem = props => {
 
     // console.log("ITEM PROPS", props);
 
-    const playNow = () => {
-        console.log("PLAY NOW");
-    }
-
-    const addToQueue = () => {
-        console.log("ADD TO QUEUE");
-    }
-
     const markFavorite = () => {
         console.log("FAVORITE");
 
@@ -55,6 +47,14 @@ const SongItem = props => {
     const addLike = () => {
         console.log("ADD LIKE");
         setLikes(likes+1);
+    }
+
+    const addToQueue = () => {
+        props.addToQueue(props);
+    }
+
+    const playNow = () => {
+        props.playNow(props);
     }
 
     return (

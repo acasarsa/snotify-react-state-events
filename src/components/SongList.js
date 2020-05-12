@@ -5,6 +5,12 @@ import SongItem from "./SongItem";
 
 const SongList = props => {
 
+    const actions = {
+        updateSong: props.updateSong,
+        addToQueue: props.addToQueue,
+        playNow: props.playNow
+    }
+
     return (
         <div className="half songlist">
             <h2>Song List</h2>
@@ -25,7 +31,11 @@ const SongList = props => {
                         {
                             props.songs.map((song, index) => {
                                 // const {title, artist, favorite} = song;
-                                return <SongItem {...song} updateSong={props.updateSong} key={index} />
+                                return <SongItem 
+                                            {...song} 
+                                            {...actions} 
+                                            key={index} 
+                                        />
                             })
                         }
                     </tbody>
