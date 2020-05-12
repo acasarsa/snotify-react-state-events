@@ -3,6 +3,7 @@ import Filter from './Filter';
 import SongItem from './SongItem';
 
 const SongList = props => {
+
     return (
         <div className="half songlist">
             <h2>Song List</h2>
@@ -19,7 +20,7 @@ const SongList = props => {
                         </tr>
                     </thead>
                     <tbody>
-                        {<SongItem/>}
+                        {props.songs.map((song,index) => <SongItem key= {index} {...song}/>)}
                     </tbody>
             </table>
         </div>

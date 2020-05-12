@@ -84,10 +84,12 @@ App.js
    |- renderNav?
 
 
-<!-- 
-- Fetch all songs successfully from the backend when the `Get Songs` button is clicked -->
+
+- Fetch all songs successfully from the backend when the `Get Songs` button is clicked
+
 
 - Render all songs in the `SongList`
+
 
 - When `Liked` is clicked on a given song in the `SongList`, its like count should increase. This *DOES NOT* need to persist to the backend. 
 - When the heart is clicked on a given song in the `SongList`, toggle its favorite value. This should persist to the backend so when the page refreshes it is still (not) a favorite. Hint: remember a little thing called a `PATCH` request?
