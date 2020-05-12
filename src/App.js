@@ -18,6 +18,32 @@ class App extends React.Component {
     })
     .catch(err => console.error("error", err));
   };
+
+  updateSong = (updated) => {
+    console.log("UPDATE SONG", updated);
+    fetch(`${API_ENDPOINT}/${updated.id}`, {
+      method: "PATCH",
+      headers: {
+          "content-type":"application/json",
+          "accept": "application/json"
+      },
+      body: JSON.stringify(updated)
+    })
+    .then(res => res.json())
+    .then(data => {
+      // setFavorite(song.favorite);
+      const copy = {...this.state};
+      copy.songs.forEach((song, index) => {
+        if(song.id === data.id){
+          console.log("MATCHED ID", data);
+          copy.songs[index] = data;
+        }
+      });
+      console.log("COPY", copy);
+      this.setState(copy);
+    })
+    .catch(err => console.error("err", err));
+  };
   
   renderNav = () => {
     return (
@@ -33,7 +59,7 @@ class App extends React.Component {
     return (
       <div className="App">
         {this.renderNav()} {/** The renderNav method renders a div holding the button to get songs and the title */}
-        <MainContainer songs={this.state.songs} /> {/** TODO: What props do I need? */}
+        <MainContainer songs={this.state.songs} updateSong={this.updateSong} /> {/** TODO: What props do I need? */}
       </div>
     );
   }

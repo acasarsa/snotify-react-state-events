@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-let API_ENDPOINT = `http://localhost:6001/songs`
+// let API_ENDPOINT = `http://localhost:6001/songs`
 
 const SongItem = props => {
 
     const [likes, setLikes] = useState(0);
-    const [favorite, setFavorite] = useState(props.favorite);
+    // const [favorite, setFavorite] = useState(props.favorite);
 
-    console.log("ITEM PROPS", props);
+    // console.log("ITEM PROPS", props);
 
     const playNow = () => {
         console.log("PLAY NOW");
@@ -20,6 +20,17 @@ const SongItem = props => {
     const markFavorite = () => {
         console.log("FAVORITE");
 
+        const updated = {
+            ...props,
+            favorite: !props.favorite
+        };
+
+        // remove the function
+        delete updated.updateSong;
+
+        props.updateSong(updated);
+
+        /*
         const favoriteBody = {
             ...props,
             favorite: !favorite
@@ -38,6 +49,7 @@ const SongItem = props => {
             setFavorite(song.favorite);
         })
         .catch(err => console.error("err", err));
+        */
     }
 
     const addLike = () => {
@@ -51,7 +63,7 @@ const SongItem = props => {
             <td>{props.artist}</td>
             <td><button onClick={playNow /* Put your click handler here */}>Play Now</button></td>
             <td><button onClick={addToQueue /* Put your click handler here */}>Add to Queue</button></td>
-            <td onClick={markFavorite /* Put your click handler here */}>{favorite ? "💚" : "♡"}</td>
+            <td onClick={markFavorite /* Put your click handler here */}>{props.favorite ? "💚" : "♡"}</td>
             <td onClick={addLike}>Likes: {likes}</td>
         </tr>
     )

@@ -6,7 +6,7 @@
       "artist": "Beyonce",
       "url": "https://www.youtube.com/embed/WDZJPJV__bQ",
       "genre": "Hip Hop",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "artist": "Childish Gambino",
       "url": "https://www.youtube.com/embed/VYOjWnS4cMY",
       "genre": "Hip Hop",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 3,
@@ -46,7 +46,7 @@
       "artist": "Kanye West",
       "url": "https://www.youtube.com/embed/6CHs4x2uqcQ",
       "genre": "Hip Hop",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 7,
@@ -78,7 +78,7 @@
       "artist": "A Tribe Called Quest",
       "url": "https://www.youtube.com/embed/O3pyCGnZzYA",
       "genre": "Hip Hop",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 11,

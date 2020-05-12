@@ -24,8 +24,8 @@ const SongList = props => {
                         {/** TODO: Render a SongItem component per each song here*/}
                         {
                             props.songs.map((song, index) => {
-                                const {title, artist, favorite} = song;
-                                return <SongItem {...song} key={index} />
+                                // const {title, artist, favorite} = song;
+                                return <SongItem {...song} updateSong={props.updateSong} key={index} />
                             })
                         }
                     </tbody>
