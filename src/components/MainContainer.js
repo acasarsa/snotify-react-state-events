@@ -6,7 +6,8 @@ const MainContainer = props => {
     console.log(props, 'here I am')
     return (
         <div className="simple-flex-row top">
-            <SongList /> {/** TODO: What props do I need? */}
+            {/* pass fetched songs to SongList component */}
+            <SongList songs={props.songs}/> {/** TODO: What props do I need? */}
             <Queue /> {/** TODO: What props do I need? */}
         </div>
     )

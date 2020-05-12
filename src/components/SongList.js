@@ -20,8 +20,9 @@ const SongList = props => {
                         </tr>
                     </thead>
                     <tbody>
-                        {/** TODO: Render a SongItem component per each song here*/}
-                        <SongItem />
+                        {/* spread operator creates props for every key value pair without having to explicitly state them */}
+                        {/* set key to song id instead of index of song */}
+                        {props.songs.map(song => <SongItem key={song.id} {...song} />)}
                     </tbody>
             </table>
         </div>
