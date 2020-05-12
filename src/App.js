@@ -6,15 +6,16 @@ let API_ENDPOINT = `http://localhost:6001/songs`
 
 class App extends React.Component {
   state = {
-
+    // create an initial state that represent no songs available until fetch
+    songs: []
   }
 
   // callback that will fetch songs upon click event
-  // pass songs to the MainContainer component
+  // and setState to add all the fetched songs
   getSongsHandler = () => {
     fetch(`${API_ENDPOINT}`)
     .then(resp => resp.json())
-    .then(MainContainer)
+    .then(songs => this.setState({songs}))
   }
   
   renderNav = () => {
@@ -32,8 +33,8 @@ class App extends React.Component {
     return (
       <div className="App">
         {this.renderNav()} {/** The renderNav method renders a div holding the button to get songs and the title */}
-        {/* add the songs passed within event handler as a prop */}
-        <MainContainer songs={this.getSongsHandler}/> {/** TODO: What props do I need? */}
+        {/* add the songs updated in state as a prop */}
+        <MainContainer songs={this.state.songs}/> {/** TODO: What props do I need? */}
       </div>
     );
   }
