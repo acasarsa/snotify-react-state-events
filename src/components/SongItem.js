@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+//Setting state inside function component with state hook. https://reactjs.org/docs/hooks-state.html
 
 const SongItem = props => {
+    const [likes, setLikes] = useState(0)
+    const clickLike = () => {
+        setLikes(likes + 1)
+    }
     return (
         <tr>
             <td>{props.title}</td>
@@ -8,9 +13,9 @@ const SongItem = props => {
             <td><button onClick={null /* Put your click handler here */}>Play Now</button></td>
             <td><button onClick={null /* Put your click handler here */}>Add to Queue</button></td>
             <td onClick={null /* Put your click handler here */}>{props.favorite ? "💚" : "♡"}</td>
-            <td>Likes: 0</td>
+            <td onClick={clickLike}>Likes: {likes}</td>
         </tr>
     )
 }
 
-export default SongItem; 
+export default SongItem;

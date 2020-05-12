@@ -3,7 +3,7 @@ import "./App.css";
 import MainContainer from "./components/MainContainer";
 
 let API_ENDPOINT = `http://localhost:6001/songs`;
-let response = fetch(API_ENDPOINT).then((res) => res.json());
+// let response = fetch(API_ENDPOINT).then((res) => res.json());
 
 class App extends React.Component {
   state = {
@@ -16,7 +16,7 @@ class App extends React.Component {
     });
   };
 
-  handleClick = () => {
+  getSongs = () => {
     fetch(API_ENDPOINT)
       .then((response) => {
         return response.json();
@@ -33,14 +33,14 @@ class App extends React.Component {
           };
         });
         this.setSongs(songsList);
-        console.log(this.state.songs);
+        // console.log(this.state.songs);
       });
   };
-  
+
   renderNav = () => {
     return (
       <div className="simple-flex-row">
-        <button onClick={this.handleClick}>Get Songs</button>
+        <button onClick={this.getSongs}>Get Songs</button>
         <h1>S-not-ify 🐽</h1>
         <input placeholder="Search by title or artist..." />
       </div>
