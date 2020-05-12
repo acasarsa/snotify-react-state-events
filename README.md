@@ -75,8 +75,20 @@ After cloning down the project:
 ### Core Deliverables
 High level, you have to decide where state needs to live, create methods to update state, and pass those methods to where they eventually need to be invoked. Very little guidance is provided purposefully to make you think about where state should live. 
 - Draw out the component hierarchy so you can use it as a guide to plan where state should live and how to pass props.
-- Fetch all songs successfully from the backend when the `Get Songs` button is clicked
+Index.js
+   |
+App.js
+   |- MainContainer
+   |            |- SongList = SongItems
+   |            |_ Queue
+   |- renderNav?
+
+
+<!-- 
+- Fetch all songs successfully from the backend when the `Get Songs` button is clicked -->
+
 - Render all songs in the `SongList`
+
 - When `Liked` is clicked on a given song in the `SongList`, its like count should increase. This *DOES NOT* need to persist to the backend. 
 - When the heart is clicked on a given song in the `SongList`, toggle its favorite value. This should persist to the backend so when the page refreshes it is still (not) a favorite. Hint: remember a little thing called a `PATCH` request?
 

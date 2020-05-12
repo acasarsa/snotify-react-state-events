@@ -23,6 +23,6 @@ const Queue = props => {
             </ol>
         </div>
     )
-}
+} 
 
 export default Queue;
