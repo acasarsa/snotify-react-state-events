@@ -24,14 +24,17 @@ class App extends React.Component {
     .then(res => res.json())
     .then(songData => this.setState({songs: songData}))
   }
-
-
+  
+  handleFavorite = (id) => {
+    console.log(id)
+    console.log(this.state.songs.find(song => song.id === id))
+  }
 
   render(){
     return (
       <div className="App">
         {this.renderNav()} {/** The renderNav method renders a div holding the button to get songs and the title */}
-        <MainContainer songs={this.state.songs}/> {/** TODO: What props do I need? */}
+        <MainContainer handleFavorite={this.handleFavorite}songs={this.state.songs}/> {/** TODO: What props do I need? */}
       </div>
     );
   }

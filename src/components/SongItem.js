@@ -24,7 +24,7 @@ class SongItem extends React.Component {
             Add to Queue
           </button>
         </td>
-        <td onClick={null /* Put your click handler here */}>
+        <td onClick={() =>this.props.handleFavorite(this.props.id)}>
           {this.props.favorite ? "💚" : "♡"}
         </td>
         <td onClick={this.onLikeClicks}>Likes: {this.state.like}</td>

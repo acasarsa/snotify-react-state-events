@@ -20,7 +20,7 @@ const SongList = props => {
                     </thead>
                     <tbody>
                         {/** TODO: Render a SongItem component per each song here*/}
-                        {props.songs.map((song,index) => <SongItem key={index} {...song} />)}
+                        {props.songs.map((song,index) => <SongItem key={index} {...song} handleFavorite={props.handleFavorite}/>)}
                     </tbody>
             </table>
         </div>
