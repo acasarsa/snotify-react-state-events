@@ -15,10 +15,13 @@ class App extends React.Component {
       fetch(API_ENDPOINT)
       .then(r => r.json())
       .then(songs => <SongItem title={this.title} artist={this.artist} />)
-
+    //im not sure if I can pass in a function here to create a song item div to append bc function gives error below
+    //So im trying to see if I pass in a songitem component, what behavior I would get
   }
 
   // function displaySong(props) { 
+    // let div = document.getElementsByClassName('')
+    
   //   <SongItem title={props.title} artist={props.artist} />
 
   // }
