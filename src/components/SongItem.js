@@ -19,7 +19,7 @@ const SongItem = props => {
             <td><button onClick={null /* Put your click handler here */}>Play Now</button></td>
             <td><button onClick={null /* Put your click handler here */}>Add to Queue</button></td>
             <td onClick={toggleFavorite}>{props.favorite ? "💚" : "♡"}</td>
-            <td onClick={clickLike}>Likes: {likes}</td>
+            <td>Likes: {likes}<button onClick={clickLike}>Like</button></td>
         </tr>
     )
 }
