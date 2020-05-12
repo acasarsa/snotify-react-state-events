@@ -6,13 +6,22 @@ let API_ENDPOINT = `http://localhost:6001/songs`
 
 class App extends React.Component {
   state = {
+    songs: []
+  }
+  getSongs = () => {
+    fetch(API_ENDPOINT)
+      .then(response => response.json())
+      .then(songs =>{
+        console.log("SONGS", songs);
+        this.setState({...this.state, songs})
+      }
+      )
 
   }
-  
   renderNav = () => {
     return (
       <div className="simple-flex-row">
-        <button onClick={null /* TODO: Put your method to fetch the songs */}>Get Songs</button> 
+        <button onClick={this.getSongs}>Get Songs</button> 
         <h1>S-not-ify 🐽</h1>
         <input placeholder="Search by title or artist..."/>
       </div>
