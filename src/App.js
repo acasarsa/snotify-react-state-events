@@ -22,17 +22,15 @@ class App extends React.Component {
   getSongs = () => {
     fetch(API_ENDPOINT)
     .then(res => res.json())
-    .then(res => {
-      res.forEach(song => {
-        let newArr = this.state.songs.concat(song)
-        this.setState({
-          songs: newArr
-        })
-      })
-    })
+    .then(songs => this.setState({ songs }))
+  }
+
+  updateLikes = (newLike) => {
+    
   }
 
   render(){
+    console.log('this app state', this.state)
     return (
       <div className="App">
         {this.renderNav()} {/** The renderNav method renders a div holding the button to get songs and the title */}

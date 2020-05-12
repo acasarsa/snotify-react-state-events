@@ -21,7 +21,8 @@ const SongList = props => {
                     </thead>
                     <tbody>
                         {/** TODO: Render a SongItem component per each song here*/}
-                        {props.songs ? props.songs.map(song => {return <SongItem songInfo={song}/>}) : null}
+                        {/* {props.songs ? props.songs.map(song => {return <SongItem songInfo={song}/>}) : null} */}
+                        {props.songs ? props.songs.map(song => {return <SongItem {...song} key={song.id}/>}) : null}
                     </tbody>
             </table>
         </div>
