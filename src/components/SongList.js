@@ -1,5 +1,7 @@
 import React from 'react';
 import Filter from './Filter';
+import SongItem from './SongItem';
+
 
 const SongList = props => {
     return (
@@ -18,7 +20,7 @@ const SongList = props => {
                         </tr>
                     </thead>
                     <tbody>
-                        {/** TODO: Render a SongItem component per each song here*/}
+                    {props.songs.map((song,index) => <SongItem updateSong={props.updateSong}{...song} key= {index} />)}
                     </tbody>
             </table>
         </div>

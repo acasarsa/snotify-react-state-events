@@ -6,7 +6,7 @@
       "artist": "Beyonce",
       "url": "https://www.youtube.com/embed/WDZJPJV__bQ",
       "genre": "Hip Hop",
-      "favorite": true
+      "favorite": false
     },
     {
       "id": 2,
@@ -38,7 +38,7 @@
       "artist": "Lizzo",
       "url": "https://www.youtube.com/embed/SmbmeOgWsqE",
       "genre": "Hip Hop",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 6,
@@ -46,7 +46,7 @@
       "artist": "Kanye West",
       "url": "https://www.youtube.com/embed/6CHs4x2uqcQ",
       "genre": "Hip Hop",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 7,
@@ -54,7 +54,7 @@
       "artist": "CIMAFUNK",
       "url": "https://www.youtube.com/embed/o1YBngPfU-o",
       "genre": "Hip Hop",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 8,
@@ -62,7 +62,7 @@
       "artist": "2Pac",
       "url": "https://www.youtube.com/embed/Mb1ZvUDvLDY",
       "genre": "Hip Hop",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 9,
@@ -166,7 +166,7 @@
       "artist": "Bad Bunny",
       "url": "https://www.youtube.com/embed/acEOASYioGY",
       "genre": "Hip Hop",
-      "favorite": true
+      "favorite": false
     }
   ]
 }
