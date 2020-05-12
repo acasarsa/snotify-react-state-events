@@ -13,14 +13,10 @@ class App extends React.Component {
   fetchSongs = () => {
     fetch(API_ENDPOINT)
     .then(r => r.json())
-    .then(songs => {
-      MainContainer(songs)
-      console.log(songs)
-    })
+    .then(MainContainer) 
+    // just need to pass in the reference
+    // then below you set songs=this.fetchSongs
   }
-
-  
-
   
   renderNav = () => {
 
@@ -38,7 +34,8 @@ class App extends React.Component {
     return (
       <div className="App">
         {this.renderNav()} {/** The renderNav method renders a div holding the button to get songs and the title */}
-        <MainContainer /> {/** TODO: What props do I need? title, artist, id*/}
+        <MainContainer songs={this.fetchSongs} /> {/** TODO: What props do I need? title, artist, id*/}
+      {/* !!!!! THIS IS PASSING THE PROPS OF SONGS DOWN TO MAINCONTAINER */}
       </div>
     );
   }
