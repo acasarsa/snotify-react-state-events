@@ -32,7 +32,7 @@ class App extends React.Component {
     return (
       <div className="App">
         {this.renderNav()} {/** The renderNav method renders a div holding the button to get songs and the title */}
-        <MainContainer /> {/** TODO: What props do I need? */}
+        <MainContainer songs={this.state.songs} /> {/** TODO: What props do I need? */}
       </div>
     );
   }
