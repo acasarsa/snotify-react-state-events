@@ -10,21 +10,11 @@ class App extends React.Component {
     songs: []
   }
 
-  // handleClick = (songs) => {
-  //   // let newSongs = songs
-  //   this.setState({
-  //     ...this.state, songs
-  //   })
-  //   console.log(this.state.songs)
-  // }
-
-  fetchSongs = () => {
-    fetch(API_ENDPOINT)
-    .then(response => response.json())
-    .then(songs => {
-      this.setState({...this.state,songs})
-    })
-  }
+ fetchSongs = () => {
+   fetch(API_ENDPOINT)
+   .then(response => response.json())
+   .then(songs => this.setState({songs}))
+ }
 
   renderNav = () => {
     return (
@@ -37,7 +27,7 @@ class App extends React.Component {
   }
 
   render(){
-    console.log(this.state.songs)//this is an empty array
+    console.log(this.state.songs)
     return (
       <div className="App">
         {this.renderNav()} {/** The renderNav method renders a div holding the button to get songs and the title */}

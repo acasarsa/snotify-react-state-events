@@ -80,6 +80,7 @@ High level, you have to decide where state needs to live, create methods to upda
             |
             |--SongList
             |      |==SongItem
+            |      |-Filter
             |
             |--Queue
                 |--renders-current-song
