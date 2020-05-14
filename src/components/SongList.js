@@ -3,7 +3,7 @@ import Filter from './Filter';
 import SongItem from './SongItem'
 
 const SongList = props => {
-    console.log(props.songs)
+    // console.log(props.songs)
     
 
     return (

@@ -3,7 +3,7 @@ import SongList from './SongList';
 import Queue from './Queue';
 
 const MainContainer = (props) => {
-    // console.log(props.songs)
+    console.log(props.songs)
     
 
     return (
