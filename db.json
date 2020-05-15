@@ -54,7 +54,7 @@
       "artist": "CIMAFUNK",
       "url": "https://www.youtube.com/embed/o1YBngPfU-o",
       "genre": "Hip Hop",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 8,
@@ -62,7 +62,7 @@
       "artist": "2Pac",
       "url": "https://www.youtube.com/embed/Mb1ZvUDvLDY",
       "genre": "Hip Hop",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 9,
@@ -70,7 +70,7 @@
       "artist": "John Legend",
       "url": "https://www.youtube.com/embed/PIh07c_P4hc",
       "genre": "Hip Hop",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 10,
@@ -78,7 +78,7 @@
       "artist": "A Tribe Called Quest",
       "url": "https://www.youtube.com/embed/O3pyCGnZzYA",
       "genre": "Hip Hop",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 11,
@@ -86,7 +86,7 @@
       "artist": "Common",
       "url": "https://www.youtube.com/embed/OjHX7jf-znA",
       "genre": "Hip Hop",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 12,
@@ -94,7 +94,7 @@
       "artist": "Marc Anthony",
       "url": "https://www.youtube.com/embed/YXnjy5YlDwk",
       "genre": "Hip Hop",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 13,

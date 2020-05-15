@@ -9,33 +9,39 @@ class App extends React.Component {
     songs: []
   }
 
-  //fetch API
   fetchSong = () => {
-    fetch(API_ENDPOINT)
+     fetch(API_ENDPOINT)
     .then(response => response.json())
-    .then(data => {
-      this.setState({...this.state, data})
-    })
+    .then(songs => this.setState({songs}))
   }
 
-  //Update API
-  updateSong = (update) => {
-    fetch(`${API_ENDPOINT}/${update.id}`,{
-      method: "PATCH",
+  updateSong = ( id, newFav) => {
+    fetch(API_ENDPOINT + `/${id}`, {
+      method: 'PATCH',
       headers: {
-        "content-type":"application/json",
-          "accept": "application/json"
+        'Content-Type': 'application/json',
+        Accept:  'application/json'
       },
-      body: JSON.stringify(update)
-    }).then(this.updateSong)
-    }
-  
+      body: JSON.stringify ({ favorite: newFav})
+    })
+    .then(response => response.json())
+    .then(updatedSong => {
+      let newSongs = this.state.songs.map( song => {
+        if (song.id ===  updatedSong.id){
+          return updatedSong
+        } else {
+          return song
+        }
+      })
+      this.setState({ songs: newSongs })
+  })
 
+}
   
   renderNav = () => {
     return (
       <div className="simple-flex-row">
-        <button onClick={null /* TODO: Put your method to fetch the songs */}>Get Songs</button> 
+        <button onClick={this.fetchSong}>Get Songs</button> 
         <h1>S-not-ify 🐽</h1>
         <input placeholder="Search by title or artist..."/>
       </div>
@@ -46,7 +52,7 @@ class App extends React.Component {
     return (
       <div className="App">
         {this.renderNav()} {/** The renderNav method renders a div holding the button to get songs and the title */}
-        <MainContainer /> {/** TODO: What props do I need? */}
+        <MainContainer songs={this.state.songs} updateSong={this.updateSong}/> {/** TODO: What props do I need? */}
       </div>
     );
   }
