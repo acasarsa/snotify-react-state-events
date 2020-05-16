@@ -1,6 +1,8 @@
 import React from 'react';
 
+
 const SongItem = props => {
+    // console.log('song item props:', props)
     return (
         <tr>
             <td>{props.title}</td>
