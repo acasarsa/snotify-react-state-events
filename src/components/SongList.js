@@ -1,7 +1,6 @@
 import React from 'react';
 import Filter from './Filter';
-// import SongItem from './SongItem'
-import { render } from '@testing-library/react';
+// import { render } from '@testing-library/react';
 import SongItem from './SongItem';
 
 
@@ -25,7 +24,7 @@ const SongList = props => {
                     </thead>
                     <tbody>
                      {/* {* TODO: Render a SongItem component per each song here} */}
-                    {props.songs.map(song => <SongItem key={song.id} {...song}/>)}
+                    {props.songs.map(song => <SongItem key={song.id} {...song} addFav={props.addFav}/>)}
                     </tbody>
             </table>
         </div>

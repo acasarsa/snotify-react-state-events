@@ -7,16 +7,52 @@ let API_ENDPOINT = `http://localhost:6001/songs`
 
 class App extends React.Component {
   state = {
-    songs: []
+    songs: [],
+  
   }
 
 
+
+  
 
   fetchSongs = () => {
     fetch(API_ENDPOINT)
     .then(r => r.json())
-    .then(songs => this.setState({songs: songs}))
+    .then(songs => this.setState({songs}))
   }
+
+
+  addFav = (id, newFav)=>{
+    fetch(API_ENDPOINT + `/${id}`, {
+      method: 'PATCH',
+      headers: 
+      {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        favorite: newFav
+      })
+      })
+    .then(r => r.json())
+    .then(updatedSong => {
+      let newSong = this.state.songs.map(song => {
+        if(song.id === updatedSong.id){
+          return updatedSong
+        }else{
+          return song
+        }
+      })
+      this.setState({songs: newSong})
+    })
+  
+   }
+
+
+
+
+
+
   
   renderNav = () => {
     return (
@@ -32,7 +68,7 @@ class App extends React.Component {
     return (
       <div className="App">
         {this.renderNav()} {/** The renderNav method renders a div holding the button to get songs and the title */}
-        <MainContainer songs={this.state.songs} /> {/** TODO: What props do I need? */}
+        <MainContainer songs={this.state.songs} addFav={this.addFav} /> {/** TODO: What props do I need? */}
       </div>
     );
   }
