@@ -1,12 +1,45 @@
-import React from 'react';
+import React, { Component } from 'react'
 import Filter from './Filter';
+import SongItem from './SongItem'
 
-const SongList = props => {
-    return (
-        <div className="half songlist">
-            <h2>Song List</h2>
-            <Filter />
-            <table>
+
+export default class SongList extends Component {
+
+    state = {
+        justFavs: "All",
+        genres: "All"
+    }
+
+    handleChangeFavs = (event) => {
+        this.setState({
+            justFavs: event.target.value
+        })
+    }
+
+    handleGenre = (e) => {
+        this.setState({ genres: e.target.value })
+    }
+
+
+    render() {
+        const {justFavs, genres} = this.state
+
+        let displaySongs = [...this.props.songs]
+
+        if(this.state.genres !== "All"){
+            displaySongs = displaySongs.filter(song => song.genre === this.state.genres)
+        }
+
+
+        if(this.state.justFavs !== "All") {
+            displaySongs = displaySongs.filter(song => song.favorite ? song : null )
+        }
+
+        return (
+            <div className="half songlist">
+                <h2>Song List</h2>
+                <Filter justFavs={justFavs} genres={genres} handleChangeFavs={this.handleChangeFavs} handleGenre={this.handleGenre}/>
+                <table>
                     <thead>
                         <tr>
                             <td>Title</td>
@@ -18,11 +51,13 @@ const SongList = props => {
                         </tr>
                     </thead>
                     <tbody>
-                        {/** TODO: Render a SongItem component per each song here*/}
+                        {displaySongs.map( song => <SongItem 
+                            key={song.id} {...song} 
+                            handleFavorite={this.props.handleFavorite} 
+                            playSong={this.props.playSong} />)}
                     </tbody>
-            </table>
-        </div>
-    )
+                </table>
+            </div>
+        )
+    }
 }
-
-export default SongList;
